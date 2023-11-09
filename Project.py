@@ -19,9 +19,9 @@ z=0;
 
 for i in range(len(msg)):
     img[n,m,z]=d[msg[i]]
-    n=n+1
-    m=m+1
-    z=(z+1)%3
+    n=n+10
+    m=m+n
+    z=(z+m)%3
 
 cv2.imwrite("EncryptedImg.jpg",img)
 os.startfile("EncryptedImg.jpg")
@@ -34,9 +34,9 @@ pas=input("Enter Passcode for decryption: ")
 if(password==pas):
     for i in range(len(msg)):
         message=message+c[img[n,m,z]]
-        n=n+1
-        m=m+1
-        z=(z+1)%3
+        n=n+10
+        m=m+n
+        z=(z+m)%3
     print("Decrypted Message: ",message)
 else:
     print("You are not Authenticated")
